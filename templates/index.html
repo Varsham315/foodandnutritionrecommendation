@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+body{
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-image: url('{{ url_for('static', filename='pro.jpg') }}');
+}
+.container
+{
+ text-align: center;
+ width: 360px;
+}
+.container p{
+  font-size: 25px;
+}
+  </style>
+  <body>
+    <section></section>
+    <div class="d-flex flex-column">
+      <h2 class="col-sm-12">
+        <p>         FOOD RECOGNITION    
+                  AND
+            NUTRITION VISUALIZATION 
+        </P> 
+      </h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 style="color: #000;">INTRODUCTION</h2>
+          <p style="color: #000;font-weight:400  ;">Hey buddies!!!Do you know what u eat???</p>
+        <p style="color: #000;font-weight:400  ;">Join us today to learn more about your food intake </p>
+        <p style="color: #000;font-weight:400  ;">Eat healthy stay happy!</p>
+          <h3>Click here to start!</h3>
+          <br/>
+          <ul class="nav nav-pills nav-stacked" >
+            <li class="active" style="background-color: #9658fe;">
+              <a href="/recognize" style="background-color: #9658fe;"
+                >Food Recognition & Nutrition Viusalization </a
+              >
+            </li>
+          </ul>
+          <hr class="hidden-sm hidden-md hidden-lg" />
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

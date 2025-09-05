@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Image Recognition & Nutrition Visualization</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+         background-image: url('{{ url_for('static', filename='pro.jpg') }}');
+  background-size: cover;
+}
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            
+            
+        }
+
+        fieldset {
+            margin: 30px auto;
+            padding: 10px;
+            text-align: center;
+           
+        }
+
+        h1.home_head {
+            text-align: center;
+            color: black;
+        }
+
+        ul {
+            text-align: center;
+        }
+
+        li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 60%;
+            max-width: 600px; /* Adjust the maximum width as needed */
+        }
+        td,  th {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+        .container > table {
+            margin-top: 40px; /* Adjust the margin to increase or decrease the space */
+        }
+    </style>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <h1 style="color: #9658fe;text-align: center;">Results</h1>
+    <ul>
+        <a class="active" href="/recognize">Click here to go back and upload more images.</a>
+    </ul>
+
+    {% for p in pack %}
+    <fieldset>
+        <div class="container">
+            <img src="{{ p.image }}" width="250" height="250" />
+        </div>
+        <div class="container">
+            <table>
+                <thead>
+                    <th style="color: #9658fe;">Name</th>
+                    <th style="color: #9658fe">Probability(%)</th>
+                </thead>
+                <tbody>
+                    {% for key, value in p.result.items() %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{ p.food }}" target="_blank">Click here for more nutrition information.</a>
+        </div>
+    </fieldset>
+    <br>
+    <br>
+    {% endfor %}
+</body>
+</html>
+

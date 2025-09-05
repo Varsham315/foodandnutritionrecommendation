@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Food Recognition & Nutrition Visualization</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+     <style type="text/css">
+    body {
+      background-image: url('{{ url_for('static', filename='pro.jpg') }}');
+  background-size: cover;
+}
+     .form-inline{
+        margin: auto;
+        width: 1000px;
+        padding: 50px;
+     }
+     .form-group{
+        margin: auto;
+     }
+     .form-inline {
+      margin-top: -70px;
+    width: 100%;
+  text-align: center;
+}
+     </style>
+  </head>
+ <body>
+    <section></section>
+      <p style="font-size: 40px;text-align: center;padding: 100px;" face="verdana" >
+        UPLOAD IMAGE AND RECOGNIZE
+      </p>
+    <div class="form-inline ">
+      <h2>Upload food images.</h2>
+      <form  method="POST" action="/upload" enctype="multipart/form-data">
+
+        <input class="form-control" type="file" name="img" multiple />
+        <input class="btn btn-primary" type="submit" style="background-color: #9658fe;"/>
+      </form>
+        <div class="form-group">
+            <form action="/predict">
+              <br/>
+        <input class="btn btn-primary" type="submit" class="sub" value="Recognize" style="background-color:#9658fe;"/>
+      </form>
+        </div>
+    </div>
+    </body>
+</html>
